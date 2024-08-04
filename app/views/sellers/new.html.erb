@@ -1,0 +1,54 @@
+<h1><%= @seller.new_record? ? 'Новый Продавец' : 'Редактировать Продавца' %></h1>
+
+<div class="back-container">
+  <%= link_to sellers_path, class: 'btn-back' do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+</div>
+
+<%= form_with(model: @seller, local: true, class: 'seller-form') do |form| %>
+  <% if @seller.errors.any? %>
+    <div id="error_explanation" class="error-container">
+      <h2><%= pluralize(@seller.errors.count, "ошибок") %> :</h2>
+      <ul>
+        <% @seller.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, 'Имя', class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contact_info, 'Контактная информация', class: 'form-label' %>
+    <%= form.text_field :contact_info, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address, 'Адрес', class: 'form-label' %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone_number, 'Телефон', class: 'form-label' %>
+    <%= form.text_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, 'Email', class: 'form-label' %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :user_id, 'Пользователь', class: 'form-label' %>
+    <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :login), { include_blank: 'Выберите пользователя' }, class: 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit 'Сохранить', class: 'btn-submit' %>
+  </div>
+<% end %>

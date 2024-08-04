@@ -1,0 +1,9 @@
+<h1>Новый продукт</h1>
+
+<div class='new_product_contaner'>
+  <%= link_to products_path, class: 'back_products' do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
+</div>
+
+<%= render "form", product: @product %>

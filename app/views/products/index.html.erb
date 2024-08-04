@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Продукты</h1>
+
+<div style='width: 100%; display: flex; justify-content: end; margin-bottom: 10px;'>
+  <%= link_to "Создание нового продукта", new_product_path, class: 'button-link' %>
+</div>
+
+<div id="products" class="product-grid">
+  <% @products.each do |product| %>
+    <div class="product-card">
+      <%= render product %>
+      <p style='display: flex; justify-content: center;'>
+        <%= link_to "Показать карточку продукта", product, class: 'button-link' %>
+      </p>
+    </div>
+  <% end %>
+</div>

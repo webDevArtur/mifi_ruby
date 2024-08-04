@@ -1,0 +1,27 @@
+<div class="header-container">
+  <h1>Магазин</h1>
+  <nav class="main-nav">
+    <% if session[:user] %>
+      <% current_user = User.find_by(login: session[:user]) %>
+      <div class="nav-item">
+        <%= link_to 'Товары', products_path, class: 'nav-link' %>
+      </div>
+      <% if current_user && !(current_user.permissions == 2 || current_user.permissions == 3) %>
+        <div class="nav-item">
+          <%= link_to 'Пользователи', users_path, class: 'nav-link' %>
+        </div>
+      <% end %>
+            <div class="nav-item">
+        <%= link_to 'Продавцы', sellers_path, class: 'nav-link' %>
+      </div>
+      <div class="nav-item">
+        <%= link_to 'Диалог', dialogs_welcome_path, class: 'nav-link' %>
+      </div>
+      <div class="nav-item">
+        <%= button_to logout_path, method: :delete, class: 'btn-logout' do %>
+          <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </nav>
+</div>

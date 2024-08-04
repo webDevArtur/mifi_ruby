@@ -1,0 +1,14 @@
+<h2 style="padding-top: 20px;">Карточка продукта</h2>
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<div style="margin-top: 20px;">
+  <%= link_to "Редактировать этот продукт", edit_product_path(@product) %> |
+  <%= link_to "Назад к продуктам", products_path %>
+  </div>
+
+  <div class='delete-container'>
+    <%= button_to "Удалить этот продукт", @product, method: :delete, class: 'btn-delete' %>
+  </div>

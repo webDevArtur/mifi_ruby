@@ -1,0 +1,9 @@
+<h1>Редактирование продукта</h1>
+
+
+<div style='margin-bottom: 20px;'>
+  <%= link_to "Показать этот продукт", @product %> |
+  <%= link_to "Вернуться к катологу продуктов", products_path %>
+</div>
+
+<%= render "form", product: @product %>

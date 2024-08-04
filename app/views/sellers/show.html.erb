@@ -1,0 +1,10 @@
+<h1>Продавец: <%= @seller.name %></h1>
+<p><strong>Контактная информация:</strong> <%= @seller.contact_info %></p>
+<p><strong>Адрес:</strong> <%= @seller.address %></p>
+<p><strong>Телефон:</strong> <%= @seller.phone_number %></p>
+<p><strong>Email:</strong> <%= @seller.email %></p>
+<div class="link-container">
+  <%= link_to 'Редактировать', edit_seller_path(@seller), class: 'link-item' %>
+  <span class="separator">|</span>
+  <%= link_to 'Назад к списку', sellers_path, class: 'link-item' %>
+</div>

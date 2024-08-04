@@ -1,0 +1,19 @@
+<% if session[:user].blank? %>
+  <div class="registration">
+    <h1>Авторизация</h1>
+    <% if flash[:alert] %>
+      <p class="error"><%= flash[:alert] %></p>
+    <% end %>
+    <div class="form">
+      <%= form_tag welcome_start_path, method: :post do %>
+        <%= text_field_tag :login, '', placeholder: 'Логин' %>
+        <%= password_field_tag :plain_password, '', placeholder: 'Пароль' %>
+        <%= submit_tag 'Войти' %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="welcome-message">
+    <h1>Добро пожаловать, <%= session[:user] %>!</h1>
+  </div>
+<% end %>

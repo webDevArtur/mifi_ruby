@@ -1,0 +1,10 @@
+<h1>Редактирование пользователя</h1>
+
+<%= render "form", user: @user %>
+
+<br>
+
+<div class="links">
+  <%= link_to "Показать этого пользователя", @user %> |
+  <%= link_to "Назад к пользователям", users_path %>
+</div>
